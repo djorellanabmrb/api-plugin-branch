@@ -1,0 +1,79 @@
+
+input CreateGeoPointInput{
+  "This is the type of point"  
+  type: GeoEnum!
+  "lat, lng"
+  coordinates: [Number!]!
+}
+
+input CreateScheduleDetailInput{
+  "opened hour hh:mm"
+  openedHour: String!
+  "closed hour hh:mm"
+  closedHour: String!
+}
+
+input CreateScheduleInput{
+  "sunday schedule"
+  sunday: CreateScheduleDetailInput!
+  "monday schedule"
+  monday: CreateScheduleDetailInput!
+  "tuesday schedule"
+  tuesday: CreateScheduleDetailInput!
+  "wednesday schedule"
+  wednesday: CreateScheduleDetailInput!
+  "thursday schedule"
+  thursday: CreateScheduleDetailInput!
+  "friday schedule"
+  friday: CreateScheduleDetailInput!
+  "saturday schedule"
+  saturday: CreateScheduleDetailInput!
+}
+
+input CreateGeoPolygonInput{
+  "This is the type of Polygon"
+  type: GeoEnum!
+
+  "array of points"
+  coordinates: [[[Number]]]
+}
+
+extend type CreateBranchInput{
+  "name of the branch"
+  name: String!
+
+  "address of the branch"
+  address: String!
+
+  "phone of the branch"
+  phone: String!
+
+  "third code of the branch"
+  thirdCode: String!
+
+  "delivery code of the branch"
+  deliveryCode: String!
+
+  "distance delivery of the branch"
+  distanceDelivery: Number!
+
+  "shop id of the branch"
+  shopId: ID!
+
+  "polygon of the branch"
+  polygon: CreateGeoPolygonInput!
+
+  "point of the branch"
+  point: CreateGeoPointInput!
+
+  "schedules of the branch"
+  schedule: CreateScheduleInput!
+}
+
+extend type Mutation {
+  "Create a new branch"
+  createBranch(
+    "Mutation input"
+    input: CreateBranchInput!
+  ): Branch!
+}

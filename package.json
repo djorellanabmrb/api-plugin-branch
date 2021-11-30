@@ -1,18 +1,18 @@
 {
-  "name": "@reactioncommerce/api-plugin-example",
-  "description": "Boilerplate Example plugin for the Reaction API",
+  "name": "@reactioncommerce/api-plugin-branch",
+  "description": "Boilerplate Branch plugin for the Reaction API",
   "version": "0.0.0-development",
   "main": "index.js",
   "type": "module",
   "engines": {
     "node": ">=12.14.1"
   },
-  "homepage": "https://github.com/reactioncommerce/api-plugin-example",
-  "url": "https://github.com/reactioncommerce/api-plugin-example",
+  "homepage": "https://github.com/twowheelstogo/api-plugin-branch",
+  "url": "https://github.com/twowheelstogo/api-plugin-branche",
   "email": "engineering@reactioncommerce.com",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/reactioncommerce/api-plugin-example.git"
+    "url": "git+https://github.com/twowheelstogo/api-plugin-branch.git"
   },
   "author": {
     "name": "Reaction Commerce",
@@ -21,11 +21,15 @@
   },
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/reactioncommerce/api-plugin-example/issues"
+    "url": "https://github.com/twowheelstogo/api-plugin-branch/issues"
   },
   "sideEffects": false,
   "dependencies": {
-    "@reactioncommerce/api-utils": "^1.16.5"
+    "@reactioncommerce/api-utils": "^1.16.5",
+    "@reactioncommerce/logger": "^1.1.4",
+    "@reactioncommerce/random": "^1.0.2",
+    "@reactioncommerce/reaction-error": "^1.0.1",
+    "simpl-schema": "^1.12.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",

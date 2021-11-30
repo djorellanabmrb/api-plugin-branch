@@ -1,0 +1,82 @@
+enum GeoEnum {
+  Point
+  Polygon
+}
+type GeoPoint {
+  "This is the type of point"
+  type: GeoEnum!
+
+  "lat, lng"
+  coordinates: [Number!]!
+}
+
+type ScheduleDetail {
+  "opened hour hh:mm"
+  openedHour: String!
+
+  "closed hour hh:mm"
+  closedHour: String!
+}
+
+type Schedule {
+  "sunday schedule"
+  sunday: ScheduleDetail!
+
+  "monday schedule"
+  monday: ScheduleDetail!
+
+  "tuesday schedule"
+  tuesday: ScheduleDetail!
+
+  "wednesday schedule"
+  wednesday: ScheduleDetail!
+
+  "sundthursdayay schedule"
+  thursday: ScheduleDetail!
+
+  "friday schedule"
+  friday: ScheduleDetail!
+
+  "saturday schedule"
+  saturday: ScheduleDetail!
+}
+
+type GeoPolygon {
+  "This is the type of Polygon"
+  type: GeoEnum!
+
+  "array of points"
+  coordinates: [[[Number]]]
+}
+
+type Branch {
+  "name of the branch"
+  name: String!
+
+  "address of the branch"
+  address: String!
+
+  "phone of the branch"
+  phone: String!
+
+  "third code of the branch"
+  thirdCode: String!
+
+  "delivery code of the branch"
+  deliveryCode: String!
+
+  "distance delivery of the branch"
+  distanceDelivery: Number!
+
+  "shop id of the branch"
+  shopId: ID!
+
+  "polygon of the branch"
+  polygon: GeoPolygon!
+
+  "point of the branch"
+  point: GeoPoint!
+
+  "schedules of the branch"
+  schedule: Schedule!
+}
