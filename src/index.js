@@ -3,7 +3,7 @@ import policies from "./policies.json";
 import startup from "./startup.js";
 import schemas from "./graphql/schemas/index.js";
 import resolvers from "./graphql/resolvers/index.js";
-import Branch from "./simpleSchemas.js";
+import { Branch } from "./simpleSchemas.js";
 import mutations from "./graphql/mutations/index.js";
 import queries from "./graphql/queries/index.js";
 
