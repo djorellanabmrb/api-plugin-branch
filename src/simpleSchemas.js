@@ -1,12 +1,15 @@
 import SimpleSchema from "simpl-schema";
 
 export const Point = new SimpleSchema({
-  type: {
+  "type": {
     type: String,
     allowedValues: "Point"
   },
-  coordinates: {
-    type: [Number]
+  "coordinates": {
+    type: Array
+  },
+  "coordinates.$": {
+    type: Number
   }
 });
 
@@ -30,12 +33,21 @@ export const schedule = new SimpleSchema({
 });
 
 export const Polygon = new SimpleSchema({
-  type: {
+  "type": {
     type: String,
     allowedValues: "Polygon"
   },
-  coordinates: {
-    type: [[[Number]]]
+  "coordinates": {
+    type: Array
+  },
+  "coordinates.$": {
+    type: Array
+  },
+  "coordinates.$.$": {
+    type: Array
+  },
+  "coordinates.$.$.$": {
+    type: Number
   }
 });
 
