@@ -1,19 +1,18 @@
-
-input CreateGeoPointInput{
-  "This is the type of point"  
+input CreateGeoPointInput {
+  "This is the type of point"
   type: GeoEnum!
   "lat, lng"
   coordinates: [Float!]!
 }
 
-input CreateScheduleDetailInput{
+input CreateScheduleDetailInput {
   "opened hour hh:mm"
   openedHour: String!
   "closed hour hh:mm"
   closedHour: String!
 }
 
-input CreateScheduleInput{
+input CreateScheduleInput {
   "sunday schedule"
   sunday: CreateScheduleDetailInput!
   "monday schedule"
@@ -30,7 +29,7 @@ input CreateScheduleInput{
   saturday: CreateScheduleDetailInput!
 }
 
-input CreateGeoPolygonInput{
+input CreateGeoPolygonInput {
   "This is the type of Polygon"
   type: GeoEnum!
 
@@ -38,7 +37,7 @@ input CreateGeoPolygonInput{
   coordinates: [[[Float]]]
 }
 
-extend type CreateBranchInput{
+input CreateBranchInput {
   "name of the branch"
   name: String!
 
@@ -72,8 +71,5 @@ extend type CreateBranchInput{
 
 extend type Mutation {
   "Create a new branch"
-  createBranch(
-    "Mutation input"
-    input: CreateBranchInput!
-  ): Branch!
+  createBranch("Mutation input" input: CreateBranchInput!): Branch!
 }
