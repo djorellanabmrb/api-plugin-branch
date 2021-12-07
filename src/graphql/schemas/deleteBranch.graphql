@@ -1,4 +1,4 @@
-extend type DeleteBranchInput{
+input DeleteBranchInput{
   "Shop id of the branch"
   shopId: ID!
   
