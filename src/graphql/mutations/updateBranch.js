@@ -1,4 +1,4 @@
-import { Branch } from "../../simpleSchemas";
+import { Branch } from "../../simpleSchemas.js";
 
 /**
  * @name shop/updateShop

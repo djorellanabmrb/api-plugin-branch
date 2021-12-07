@@ -1,6 +1,4 @@
-import {
-  decodeShopOpaqueId
-} from "../../../xforms/id.js";
+import { decodeShopOpaqueId } from "../../../xforms/id.js";
 
 /**
  * @name Mutation/updateBranch
