@@ -2,8 +2,9 @@ import pkg from "../package.json";
 import policies from "./policies.json";
 import startup from "./startup.js";
 import schemas from "./schemas/index.js";
-import mutations from "./graphql/mutations/index.js";
+import resolvers from "./graphql/resolvers";
 import Branch from "./simpleSchemas.js";
+import mutations from "./graphql/mutations/index.js";
 import queries from "./graphql/queries/index.js";
 
 /**
@@ -13,8 +14,8 @@ import queries from "./graphql/queries/index.js";
  */
 export default async function register(app) {
   await app.registerPlugin({
-    label: "Branch Example",
-    name: "branch-example",
+    label: "Branches",
+    name: "branches",
     version: pkg.version,
     collections: {
       Branches: {
@@ -26,8 +27,11 @@ export default async function register(app) {
     },
     policies,
     graphQL: {
-      schemas
+      schemas,
+      resolvers
     },
+    mutations,
+    queries,
     simpleSchemas: {
       Branch
     }
