@@ -1,6 +1,6 @@
 import Random from "@reactioncommerce/random";
 import ReactionError from "@reactioncommerce/reaction-error";
-import { Branch } from "../../simpleSchemas";
+import { Branch } from "../../simpleSchemas.js";
 
 /**
  * @name shop/createShop
