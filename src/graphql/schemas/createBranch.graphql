@@ -3,7 +3,7 @@ input CreateGeoPointInput{
   "This is the type of point"  
   type: GeoEnum!
   "lat, lng"
-  coordinates: [Number!]!
+  coordinates: [Float!]!
 }
 
 input CreateScheduleDetailInput{
@@ -35,7 +35,7 @@ input CreateGeoPolygonInput{
   type: GeoEnum!
 
   "array of points"
-  coordinates: [[[Number]]]
+  coordinates: [[[Float]]]
 }
 
 extend type CreateBranchInput{
@@ -55,7 +55,7 @@ extend type CreateBranchInput{
   deliveryCode: String!
 
   "distance delivery of the branch"
-  distanceDelivery: Number!
+  distanceDelivery: Float!
 
   "shop id of the branch"
   shopId: ID!

@@ -3,7 +3,7 @@ input UpdateGeoPointInput{
   "This is the type of point"  
   type: GeoEnum!
   "lat, lng"
-  coordinates: [Number!]!
+  coordinates: [Float!]!
 }
 
 input UpdateScheduleDetailInput{
@@ -35,7 +35,7 @@ input UpdateGeoPolygonInput{
   type: GeoEnum!
 
   "array of points"
-  coordinates: [[[Number]]]
+  coordinates: [[[Float]]]
 }
 
 extend type UpdateBranchInput{
@@ -55,7 +55,7 @@ extend type UpdateBranchInput{
   deliveryCode: String!
 
   "distance delivery of the branch"
-  distanceDelivery: Number!
+  distanceDelivery: Float!
 
   "shop id of the branch"
   shopId: ID!

@@ -7,7 +7,7 @@ type GeoPoint {
   type: GeoEnum!
 
   "lat, lng"
-  coordinates: [Number!]!
+  coordinates: [Float!]!
 }
 
 type ScheduleDetail {
@@ -46,7 +46,7 @@ type GeoPolygon {
   type: GeoEnum!
 
   "array of points"
-  coordinates: [[[Number]]]
+  coordinates: [[[Float]]]
 }
 
 type Branch {
@@ -66,7 +66,7 @@ type Branch {
   deliveryCode: String!
 
   "distance delivery of the branch"
-  distanceDelivery: Number!
+  distanceDelivery: Float!
 
   "shop id of the branch"
   shopId: ID!
