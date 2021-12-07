@@ -1,5 +1,5 @@
 /**
- * @name Mutation/createShop
+ * @name Mutation/createBranch
  * @method
  * @memberof Shop/GraphQL
  * @summary resolver for the createBranch GraphQL mutation
