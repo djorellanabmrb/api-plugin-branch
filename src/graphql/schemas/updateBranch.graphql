@@ -38,7 +38,7 @@ input UpdateGeoPolygonInput{
   coordinates: [[[Float]]]
 }
 
-extend type UpdateBranchInput{
+input UpdateBranchInput{
   "name of the branch"
   name: String!
 
