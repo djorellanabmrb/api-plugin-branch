@@ -1,4 +1,7 @@
-import { encodeBranchOpaqueId, decodeShopOpaqueId } from "../../xforms/id.js";
+import {
+  encodeBranchOpaqueId,
+  decodeShopOpaqueId
+} from "../../../xforms/id.js";
 
 /**
  * @name Query.brancchById
