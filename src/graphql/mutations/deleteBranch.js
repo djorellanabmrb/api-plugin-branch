@@ -1,10 +1,8 @@
-import { Branch } from "../../simpleSchemas.js";
-
 /**
  * @name shop/updateShop
  * @memberof Mutations/Shop
  * @method
- * @summary Updates data on the Shop object
+ * @summary deletes data on the Shop object
  * @param {Object} context - GraphQL execution context
  * @param {Object} input - an object of all mutation arguments that were sent
  * @param {String} input.description - The shop's description
@@ -20,23 +18,21 @@ import { Branch } from "../../simpleSchemas.js";
  * @param {Object} input.storefrontUrls - An object containing storefront url locations
  * @returns {Promise<Object>} with updated shop
  */
-export default async function updateBranch(context, input) {
+export default async function deleteBranch(context, input) {
   const { collections } = context;
   const { Branches } = collections;
 
-  Branch.validate(input || {});
-
-  const { branchId, ...branchSettings } = input;
+  const { branchId } = input;
 
   // Check permission to make sure user is allowed to do this
   // Security check for admin access
   // await context.validatePermissions(`reaction:legacy:shops:${shopId}`, "update", { shopId });
 
-  const { value: updatedBranch } = await Branches.findOneAndUpdate(
+  const { value: deletedBranch } = await Branches.findOneAndUpdate(
     { _id: branchId },
     {
       $set: {
-        ...branchSettings,
+        active: false,
         updatedAt: new Date()
       }
     },
@@ -45,5 +41,5 @@ export default async function updateBranch(context, input) {
     }
   );
 
-  return updatedBranch;
+  return deletedBranch;
 }

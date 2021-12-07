@@ -1,4 +1,4 @@
-import { decodeShopOpaqueId } from "../../../xforms/id.js";
+import { decodeBranchOpaqueId } from "../../../xforms/id.js";
 
 /**
  * @name Mutation/updateBranch
@@ -8,19 +8,19 @@ import { decodeShopOpaqueId } from "../../../xforms/id.js";
  * @param {Object} _ - unused
  * @param {Object} args.input - an object of all mutation arguments that were sent by the client
  * @param {Object} context - an object containing the per-request state
- * @returns {Promise<Object>} UpdateShopPayload
+ * @returns {Promise<Object>} UpdatebRANCHPayload
  */
 export default async function updateBranch(_, { input }, context) {
   const {
     clientMutationId = null,
-    shopId: opaqueShopId,
+    branchId: opaqueBranchId,
     ...passThroughInput
   } = input;
-  const shopId = decodeShopOpaqueId(opaqueShopId);
+  const branchId = decodeBranchOpaqueId(opaqueBranchId);
 
   const updatedBranch = await context.mutations.updateBranch(context, {
     ...passThroughInput,
-    shopId
+    branchId
   });
 
   return {
