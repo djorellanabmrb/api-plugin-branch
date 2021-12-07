@@ -79,4 +79,7 @@ type Branch {
 
   "schedules of the branch"
   schedule: Schedule!
+
+  "active of the branch"
+  active: Boolean
 }
