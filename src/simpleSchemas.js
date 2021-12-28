@@ -88,7 +88,7 @@ export const Branch = new SimpleSchema({
   "scheduleData.$": {
     type: ScheduledDataBranch
   },
-  "shopId:": {
+  "shopId": {
     type: String
   },
   "geographyData": GeographyDataBranch

@@ -17,8 +17,7 @@ import { Branch } from "../../simpleSchemas.js";
  * @returns {Promise<Object>} with updated shop
  */
 export default async function createBranch(context, input) {
-  console.log("INPUT", input);
-  //Branch.validate(input || {});
+  Branch.validate(input || {});
 
   const { collections } = context;
 
@@ -40,8 +39,9 @@ export default async function createBranch(context, input) {
     activeVariants: [],
     ...input
   };
-
+  console.log("branch", branch);
   const { result } = await collections.Branches.insertOne(branch);
+  console.log("result", result);
   if (result.ok !== 1) {
     throw new ReactionError("server-error", "Unable to create branch");
   }
