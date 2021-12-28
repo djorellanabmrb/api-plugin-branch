@@ -13,25 +13,6 @@ export const Point = new SimpleSchema({
   }
 });
 
-export const ScheduleDetail = new SimpleSchema({
-  openedHour: {
-    type: String
-  },
-  closedHour: {
-    type: String
-  }
-});
-
-export const schedule = new SimpleSchema({
-  sunday: ScheduleDetail,
-  monday: ScheduleDetail,
-  tuesday: ScheduleDetail,
-  wednesday: ScheduleDetail,
-  thursday: ScheduleDetail,
-  friday: ScheduleDetail,
-  saturday: ScheduleDetail
-});
-
 export const Polygon = new SimpleSchema({
   "type": {
     type: String,
@@ -51,7 +32,7 @@ export const Polygon = new SimpleSchema({
   }
 });
 
-export const Branch = new SimpleSchema({
+export const GeneralDataBranch = new SimpleSchema({
   name: {
     type: String
   },
@@ -61,16 +42,54 @@ export const Branch = new SimpleSchema({
   phone: {
     type: String
   },
-  thirdCode: {
+  invoiceCode: {
     type: String
   },
   deliveryCode: {
     type: String
+  }
+});
+
+export const ScheduledDataBranch = new SimpleSchema({
+  isClosed: {
+    type: Boolean
   },
-  distanceDelivery: {
+  sheduledOpenString: {
+    type: String
+  },
+  scheduledOpenNumber: {
     type: Number
   },
-  polygon: Polygon,
-  point: Point,
-  shopId: String
+  scheduledCloseString: {
+    type: String
+  },
+  scheduledClosedNumber: {
+    type: Number
+  }
+});
+
+export const GeographyDataBranch = new SimpleSchema({
+  point: {
+    type: Point
+  },
+  polygon: {
+    type: Polygon
+  },
+  distance: {
+    type: Number
+  }
+});
+
+export const Branch = new SimpleSchema({
+  "generalData": GeneralDataBranch,
+  "scheduleData": {
+    type: Array
+  },
+  "scheduleData.$": {
+    type: ScheduledDataBranch
+  },
+  "shopId:": {
+    type: String
+  },
+  "geographyData": GeographyDataBranch
 });
