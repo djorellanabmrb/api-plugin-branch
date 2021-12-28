@@ -9,14 +9,11 @@
  * @returns {Promise<Object>} CreateBranchPayload
  */
 export default async function createBranch(_, { input }, context) {
-  const { clientMutationId = null, ...mutationInput } = input;
+  const { ...mutationInput } = input;
 
   const branch = await context.mutations.createBranch(context, {
     ...mutationInput
   });
 
-  console.log("branch", branch);
-  console.log("clientMutationId", clientMutationId);
-
-  return { branch, clientMutationId };
+  return { branch };
 }
