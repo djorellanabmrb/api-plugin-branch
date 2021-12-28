@@ -2,43 +2,13 @@ enum GeoEnum {
   Point
   Polygon
 }
+
 type GeoPoint {
   "This is the type of point"
   type: GeoEnum!
 
   "lat, lng"
   coordinates: [Float!]!
-}
-
-type ScheduleDetail {
-  "opened hour hh:mm"
-  openedHour: String!
-
-  "closed hour hh:mm"
-  closedHour: String!
-}
-
-type Schedule {
-  "sunday schedule"
-  sunday: ScheduleDetail!
-
-  "monday schedule"
-  monday: ScheduleDetail!
-
-  "tuesday schedule"
-  tuesday: ScheduleDetail!
-
-  "wednesday schedule"
-  wednesday: ScheduleDetail!
-
-  "sundthursdayay schedule"
-  thursday: ScheduleDetail!
-
-  "friday schedule"
-  friday: ScheduleDetail!
-
-  "saturday schedule"
-  saturday: ScheduleDetail!
 }
 
 type GeoPolygon {
@@ -49,7 +19,7 @@ type GeoPolygon {
   coordinates: [[[Float]]]
 }
 
-type Branch {
+type GeneralDataBranch {
   "name of the branch"
   name: String!
 
@@ -59,26 +29,54 @@ type Branch {
   "phone of the branch"
   phone: String!
 
-  "third code of the branch"
-  thirdCode: String!
+  "invoice of the branch"
+  invoiceCode: String!
 
   "delivery code of the branch"
   deliveryCode: String!
+}
+
+type GeographyDataBranch {
+  "distance on kms"
+  distance: Float!
+  "point of the branch"
+  point: GeoPoint!
+  "polygon of delivery"
+  polygon: GeoPolygon!
+}
+
+type ScheduleDataBranch {
+  "flag if is closed day"
+  isClosed: Boolean!
+
+  "HH>MM Open schedule"
+  sheduledOpenString: String!
+
+  "number schedule time"
+  scheduledOpenNumber: Float!
+
+  "HH>MM close schedule"
+  scheduledCloseString: String!
+
+  "number close schedule"
+  scheduledClosedNumber: Float!
+}
+
+type Branch {
+  "General data of the branch"
+  generalData: GeneralDataBranch!
+
+  "schedule data of the branch"
+  scheduleData: [ScheduleDataBranch!]!
+
+  "data geographic"
+  geographyData: GeographyDataBranch!
 
   "distance delivery of the branch"
   distanceDelivery: Float!
 
   "shop id of the branch"
   shopId: ID!
-
-  "polygon of the branch"
-  polygon: GeoPolygon!
-
-  "point of the branch"
-  point: GeoPoint!
-
-  "schedules of the branch"
-  schedule: Schedule!
 
   "active of the branch"
   active: Boolean

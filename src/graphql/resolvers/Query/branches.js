@@ -20,7 +20,7 @@ export default async function branches(parentResult, args, context, info) {
 
   const shopIds = opaqueShopIds && opaqueShopIds.map(decodeShopOpaqueId);
 
-  const query = await context.queries.orders(context, {
+  const query = await context.queries.branches(context, {
     filters,
     shopIds
   });

@@ -1,33 +1,8 @@
-
 input UpdateGeoPointInput{
   "This is the type of point"  
   type: GeoEnum!
   "lat, lng"
   coordinates: [Float!]!
-}
-
-input UpdateScheduleDetailInput{
-  "opened hour hh:mm"
-  openedHour: String!
-  "closed hour hh:mm"
-  closedHour: String!
-}
-
-input UpdateScheduleInput{
-  "sunday schedule"
-  sunday: UpdateScheduleDetailInput!
-  "monday schedule"
-  monday: UpdateScheduleDetailInput!
-  "tuesday schedule"
-  tuesday: UpdateScheduleDetailInput!
-  "wednesday schedule"
-  wednesday: UpdateScheduleDetailInput!
-  "thursday schedule"
-  thursday: UpdateScheduleDetailInput!
-  "friday schedule"
-  friday: UpdateScheduleDetailInput!
-  "saturday schedule"
-  saturday: UpdateScheduleDetailInput!
 }
 
 input UpdateGeoPolygonInput{
@@ -38,7 +13,7 @@ input UpdateGeoPolygonInput{
   coordinates: [[[Float]]]
 }
 
-input UpdateBranchInput{
+input UpdateGeneralDataBranchInput {
   "name of the branch"
   name: String!
 
@@ -48,26 +23,54 @@ input UpdateBranchInput{
   "phone of the branch"
   phone: String!
 
-  "third code of the branch"
-  thirdCode: String!
+  "invoice of the branch"
+  invoiceCode: String!
 
   "delivery code of the branch"
   deliveryCode: String!
+}
+
+input UpdateGeographyDataBranchInput {
+  "distance on kms"
+  distance: Float!
+  "point of the branch"
+  point: UpdateGeoPointInput!
+  "polygon of delivery"
+  polygon: UpdateGeoPolygonInput!
+}
+
+input UpdateScheduleDataBranchInput {
+  "flag if is closed day"
+  isClosed: Boolean!
+
+  "HH>MM Open schedule"
+  sheduledOpenString: String!
+
+  "number schedule time"
+  scheduledOpenNumber: Float!
+
+  "HH>MM close schedule"
+  scheduledCloseString: String!
+
+  "number close schedule"
+  scheduledClosedNumber: Float!
+}
+
+input UpdateBranchInput{
+  "General data of the branch"
+  generalData: UpdateGeneralDataBranchInput!
+
+  "schedule data of the branch"
+  scheduleData: [UpdateScheduleDataBranchInput!]!
+
+  "data geographic"
+  geographyData: UpdateGeographyDataBranchInput!
 
   "distance delivery of the branch"
   distanceDelivery: Float!
 
   "shop id of the branch"
   shopId: ID!
-
-  "polygon of the branch"
-  polygon: UpdateGeoPolygonInput!
-
-  "point of the branch"
-  point: UpdateGeoPointInput!
-
-  "schedules of the branch"
-  schedule: UpdateScheduleInput!
 }
 
 extend type Mutation {
