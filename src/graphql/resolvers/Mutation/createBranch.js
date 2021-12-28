@@ -16,6 +16,7 @@ export default async function createBranch(_, { input }, context) {
   });
 
   console.log("branch", branch);
+  console.log("clientMutationId", clientMutationId);
 
   return { branch, clientMutationId };
 }
