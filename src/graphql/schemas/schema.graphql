@@ -77,4 +77,13 @@ type Branch {
 
   "active of the branch"
   active: Boolean
+
+  "identification of the branch"
+  _id: String
+
+  "Created branch"
+  createdAt: DateTime
+
+  "updated At branch"
+  updatedAt: DateTime
 }
