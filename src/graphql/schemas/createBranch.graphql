@@ -66,9 +66,6 @@ input CreateBranchInput{
   "data geographic"
   geographyData: CreateGeographyDataBranchInput!
 
-  "distance delivery of the branch"
-  distanceDelivery: Float!
-
   "shop id of the branch"
   shopId: ID!
 }

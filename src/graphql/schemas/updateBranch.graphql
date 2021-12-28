@@ -66,9 +66,6 @@ input UpdateBranchInput{
   "data geographic"
   geographyData: UpdateGeographyDataBranchInput!
 
-  "distance delivery of the branch"
-  distanceDelivery: Float!
-
   "shop id of the branch"
   shopId: ID!
 }

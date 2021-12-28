@@ -72,9 +72,6 @@ type Branch {
   "data geographic"
   geographyData: GeographyDataBranch!
 
-  "distance delivery of the branch"
-  distanceDelivery: Float!
-
   "shop id of the branch"
   shopId: ID!
 
