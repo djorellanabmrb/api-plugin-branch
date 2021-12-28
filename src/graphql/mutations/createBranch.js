@@ -17,7 +17,8 @@ import { Branch } from "../../simpleSchemas.js";
  * @returns {Promise<Object>} with updated shop
  */
 export default async function createBranch(context, input) {
-  Branch.validate(input || {});
+  console.log("INPUT", input);
+  //Branch.validate(input || {});
 
   const { collections } = context;
 
