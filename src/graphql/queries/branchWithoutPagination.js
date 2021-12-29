@@ -17,9 +17,7 @@ export default async function branchWithoutPagination(
   const { collections } = context;
 
   const query = { shopId };
-  let demo = await collections.Branches.find({});
-  console.log(demo);
-  let data = await demo.toArray();
-  console.log(data);
-  return collections.Branches.find({});
+  let data = await collections.Branches.find(query);
+  data = await data.toArray();
+  return data;
 }
