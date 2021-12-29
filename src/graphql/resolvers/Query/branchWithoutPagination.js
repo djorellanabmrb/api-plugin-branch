@@ -16,10 +16,9 @@ export default async function branchWithoutPagination(
   args,
   context
 ) {
-  console.log("entro ala mutation")
   const { shopId } = args;
-  const branches = await context.queries.branchWithoutPagination(context, {
+
+  return context.queries.branchWithoutPagination(context, {
     shopId: decodeShopOpaqueId(shopId)
   });
-  return branches;
 }
