@@ -19,7 +19,8 @@ export default async function register(app) {
     version: pkg.version,
     collections: {
       Branches: {
-        name: "Branches"
+        name: "Branches",
+        indexes: [[{ "geographyData.point": "2dsphere" }]]
       }
     },
     functionsByType: {
