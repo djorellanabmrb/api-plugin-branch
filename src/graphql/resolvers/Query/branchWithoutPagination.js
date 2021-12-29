@@ -1,6 +1,4 @@
-import {
-  decodeShopOpaqueId
-} from "../../../xforms/id.js";
+import { decodeShopOpaqueId } from "../../../xforms/id.js";
 
 /**
  * @name Query.brancchById
@@ -13,10 +11,14 @@ import {
  * @param {Object} context - An object containing the per-request state
  * @returns {Promise<Object>|undefined} An Branch object
  */
-export default async function branchWithoutPagination(parentResult, args, context) {
+export default async function branchWithoutPagination(
+  parentResult,
+  args,
+  context
+) {
   const { shopId } = args;
 
-  return context.queries.branchById(context, {
+  return context.queries.branchWithoutPagination(context, {
     shopId: decodeShopOpaqueId(shopId)
   });
 }
