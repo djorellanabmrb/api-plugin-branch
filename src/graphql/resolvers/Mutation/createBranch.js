@@ -14,6 +14,6 @@ export default async function createBranch(_, { input }, context) {
   const branch = await context.mutations.createBranch(context, {
     ...mutationInput
   });
-
-  return { branch };
+  console.log(["branch", branch);
+  return branch;
 }
