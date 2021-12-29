@@ -17,8 +17,8 @@ export default async function branchWithoutPagination(
   context
 ) {
   const { shopId } = args;
-  console.log("mmmm entro a branchWithoutPagination");
-  return context.queries.branchWithoutPagination(context, {
+  const branches = await context.queries.branchWithoutPagination(context, {
     shopId: decodeShopOpaqueId(shopId)
   });
+  return branches;
 }
