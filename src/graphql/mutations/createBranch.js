@@ -39,7 +39,7 @@ export default async function createBranch(context, input) {
     ...input
   };
   const { result } = await collections.Branches.insertOne(branch);
-  
+
   if (result.ok !== 1) {
     throw new ReactionError("server-error", "Unable to create branch");
   }

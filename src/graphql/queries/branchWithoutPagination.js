@@ -1,5 +1,3 @@
-import _ from "lodash";
-import ReactionError from "@reactioncommerce/reaction-error";
 
 /**
  * @name orders
