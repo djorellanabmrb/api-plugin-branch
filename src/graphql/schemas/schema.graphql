@@ -87,3 +87,34 @@ type Branch {
   "updated At branch"
   updatedAt: DateTime
 }
+
+type DistanceAddressBranch {
+  "text of distance"
+  text: String
+
+  "kms of distance"
+  value: String
+
+  "it is id of the branch more nearly"
+  branchId: String
+}
+
+type MetaddressBranch {
+  "address type of google map"
+  administrative_area_level_1: String
+
+  "address type of google map"
+  administrative_area_level_2: String
+
+  "address type of google map"
+  neighborhood: String
+
+  "address type of google map"
+  street_address: String
+
+  "address type of google map"
+  sublocality: String
+
+  "metadata distance"
+  distance: DistanceAddressBranch
+}

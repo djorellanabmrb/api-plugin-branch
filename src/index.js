@@ -20,7 +20,11 @@ export default async function register(app) {
     collections: {
       Branches: {
         name: "Branches",
-        indexes: [[{ "geographyData.point": "2dsphere" }]]
+        indexes: [
+          [{ "geographyData.point": "2dsphere" }],
+          [{ "geographyData.polygon": "2dsphere" }],
+          [{ shopId: 1 }]
+        ]
       }
     },
     functionsByType: {

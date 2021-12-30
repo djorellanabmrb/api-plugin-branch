@@ -44,4 +44,12 @@ extend type Query {
 
   "Get all branches"
   branchWithoutPagination("The shop that owns the branch" shopId: ID!): [Branch]
+
+  "Get metadata branch"
+  metaddress(
+    "The shop that owns the branch"
+    shopId: ID!
+    "The point of customer"
+    point: UpdateGeoPointInput!
+  ): MetaddressBranch
 }

@@ -93,3 +93,37 @@ export const Branch = new SimpleSchema({
   },
   "geographyData": GeographyDataBranch
 });
+
+export const DistanceAddressBranch = new SimpleSchema({
+  text: {
+    type: String
+  },
+  value: {
+    type: Number
+  },
+  branchId: {
+    type: String
+  }
+});
+
+export const MetaddressBranch = new SimpleSchema({
+  // eslint-disable-next-line camelcase
+  administrative_area_level_1: {
+    type: String
+  },
+  // eslint-disable-next-line camelcase
+  administrative_area_level_2: {
+    type: String
+  },
+  neighborhood: {
+    type: String
+  },
+  // eslint-disable-next-line camelcase
+  street_address: {
+    type: String
+  },
+  sublocality: {
+    type: String
+  },
+  distance: DistanceAddressBranch
+});
