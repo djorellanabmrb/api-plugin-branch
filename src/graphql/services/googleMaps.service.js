@@ -17,7 +17,6 @@ const serviceDistanceMatrix = async (origin, destination) => {
   url += `&language=${encodeURIComponent("es")}`;
   url += `&region=${encodeURIComponent("gt")}`;
   url += `&key=${encodeURIComponent(googleMapsKey)}`;
-  console.log("url", url);
   const res = await fetch(url, {
     method: "GET"
   });
@@ -25,11 +24,10 @@ const serviceDistanceMatrix = async (origin, destination) => {
     throw new Error("Error en la comunicación con Google maps");
   }
   const data = await res.json();
-  console.log("data", data);
   if (data.status === "OK") {
     if (data.rows) {
       if (data.rows[0]) {
-        if (data.row[0].elements) {
+        if (data.rows[0].elements) {
           if (data.rows[0].elements[0]) {
             if (data.rows[0].elements[0].distance) {
               data.rows[0].elements[0].distance.value /= 1000;
