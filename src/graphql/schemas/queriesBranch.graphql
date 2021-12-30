@@ -52,4 +52,13 @@ extend type Query {
     "The point of customer"
     point: UpdateGeoPointInput!
   ): MetaddressBranch
+  "check if is available the branch"
+  isAvailableBranch(
+    "The shop that owns the branch"
+    shopId: ID
+    "The branch ID"
+    branchId: ID
+    "The date of delivery"
+    date: DateTime!
+  ): Boolean
 }
