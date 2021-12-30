@@ -36,7 +36,8 @@ export default async function isAvailableBranch(
   query[`scheduleData.${day}.isClosed`] = false;
   query[`scheduleData.${day}.scheduledOpenNumber`] = { $gte: time };
   query[`scheduleData.${day}.scheduledClosedNumber`] = { $lte: time };
-
+  console.log(query);
   const data = await Branches.findOne(query);
+  console.log("data", data);
   return data !== null;
 }
