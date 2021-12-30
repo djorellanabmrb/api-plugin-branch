@@ -59,6 +59,6 @@ extend type Query {
     "The branch ID"
     branchId: ID
     "The date of delivery"
-    date: DateTime!
+    date: DateTime
   ): Boolean
 }
