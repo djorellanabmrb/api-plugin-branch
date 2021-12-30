@@ -21,6 +21,7 @@ export default async function metaddress(context, { point, shopId }) {
     data.geographyData.point,
     point
   );
+  console.log("branchAddress", branchAddress);
   branchAddress.distance.branchId = data._id;
   return branchAddress;
 }

@@ -49,7 +49,8 @@ const serviceDistanceMatrix = async (origin, destination) => {
     sublocality: "",
     distance: {
       text: "",
-      value: 0
+      value: 0,
+      branchId: ""
     }
   };
 };
