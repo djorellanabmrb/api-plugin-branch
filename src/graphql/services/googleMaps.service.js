@@ -31,7 +31,7 @@ const serviceDistanceMatrix = async (origin, destination) => {
           if (data.rows[0].elements[0]) {
             if (data.rows[0].elements[0].distance) {
               data.rows[0].elements[0].distance.value /= 1000;
-              return data.rows[0].elements[0].distance;
+              return data.rows[0].elements[0];
             }
           }
         }
