@@ -34,10 +34,8 @@ export default async function isAvailableBranch(
   };
   const { day, time } = getNowDayByTimeZone(date);
   query[`scheduleData.${day}.isClosed`] = false;
-  query[`scheduleData.${day}.scheduledOpenNumber`] = { $gte: time };
-  query[`scheduleData.${day}.scheduledClosedNumber`] = { $lte: time };
-  console.log(query);
+  query[`scheduleData.${day}.scheduledOpenNumber`] = { $lte: time };
+  query[`scheduleData.${day}.scheduledClosedNumber`] = { $gte: time };
   const data = await Branches.findOne(query);
-  console.log("data", data);
   return data !== null;
 }
