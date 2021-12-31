@@ -39,7 +39,7 @@ extend type Query {
     shopId: ID
     "The branch ID"
     branchId: ID
-  ): Boolean
+  ): Branch!
 
   "Get all branches"
   branchWithoutPagination("The shop that owns the branch" shopId: ID!): [Branch]
