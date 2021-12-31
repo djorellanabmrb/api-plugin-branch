@@ -1,4 +1,7 @@
-import { decodeBranchOpaqueId } from "../../../xforms/id.js";
+import {
+  decodeBranchOpaqueId,
+  decodeShopOpaqueId
+} from "../../../xforms/id.js";
 
 /**
  * @name Mutation/updateBranch
@@ -12,19 +15,17 @@ import { decodeBranchOpaqueId } from "../../../xforms/id.js";
  */
 export default async function updateBranch(_, { input }, context) {
   const {
-    clientMutationId = null,
-    branchId: opaqueBranchId,
+    _id: opaqueBranchId,
+    shopId: opaqueShopId,
     ...passThroughInput
   } = input;
-  const branchId = decodeBranchOpaqueId(opaqueBranchId);
+  const _id = decodeBranchOpaqueId(opaqueBranchId);
+  const shopId = decodeShopOpaqueId(opaqueShopId);
 
-  const updatedBranch = await context.mutations.updateBranch(context, {
+  const updatedBranch = await context.mutations.updateBranch(context, _id, {
     ...passThroughInput,
-    branchId
+    shopId
   });
 
-  return {
-    branch: updatedBranch,
-    clientMutationId
-  };
+  return updatedBranch;
 }

@@ -57,6 +57,9 @@ input UpdateScheduleDataBranchInput {
 }
 
 input UpdateBranchInput{
+  "id of the branch"
+  _id: ID
+  
   "General data of the branch"
   generalData: UpdateGeneralDataBranchInput!
 

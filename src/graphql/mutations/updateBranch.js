@@ -20,23 +20,21 @@ import { Branch } from "../../simpleSchemas.js";
  * @param {Object} input.storefrontUrls - An object containing storefront url locations
  * @returns {Promise<Object>} with updated shop
  */
-export default async function updateBranch(context, input) {
+export default async function updateBranch(context, _id, input) {
   const { collections } = context;
   const { Branches } = collections;
 
   Branch.validate(input || {});
-
-  const { branchId, ...branchSettings } = input;
 
   // Check permission to make sure user is allowed to do this
   // Security check for admin access
   // await context.validatePermissions(`reaction:legacy:shops:${shopId}`, "update", { shopId });
 
   const { value: updatedBranch } = await Branches.findOneAndUpdate(
-    { _id: branchId },
+    { _id, active: true },
     {
       $set: {
-        ...branchSettings,
+        ...input,
         updatedAt: new Date()
       }
     },
