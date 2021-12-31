@@ -14,6 +14,7 @@ import {
  * @returns {Promise<Object>} DeleteBranchPayload
  */
 export default async function deleteBranch(_, { input }, context) {
+  console.log("entrooo");
   const { branchId, shopId } = input;
   const deletedBranch = await context.mutations.updateBranch(context, {
     branchId: decodeBranchOpaqueId(branchId),
