@@ -14,8 +14,8 @@ import ReactionError from "@reactioncommerce/reaction-error";
  */
 export default async function branchById(context, args) {
   console.log(args);
-  const { branchId, shopId } = args;
-  console.log("branchId", branchId);
+  const { id, shopId } = args;
+  console.log("id", id);
   console.log("shopId", shopId);
   if (!branchId || !shopId) {
     throw new ReactionError(
