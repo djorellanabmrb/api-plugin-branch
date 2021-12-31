@@ -20,7 +20,7 @@ const serviceGeoCode = async (point) => {
   url += `&language=${encodeURIComponent("es")}`;
   url += `&region=${encodeURIComponent("gt")}`;
   url += `&key=${encodeURIComponent(googleMapsKey)}`;
-  console.log(url);
+
   const res = await fetch(url, {
     method: "GET"
   });
@@ -32,8 +32,8 @@ const serviceGeoCode = async (point) => {
   const setAddress = new Set(STREETS);
   if (data.status === "OK") {
     if (data.results) {
-      if (data.results[0]) {
-        data.results[0].address_components.forEach((add) => {
+      for (let i = 0; i < data.results.length && setAddress.size > 0; i++) {
+        data.results[i].address_components.forEach((add) => {
           const interceptions = add.types.filter((type) =>
             setAddress.has(type)
           );
