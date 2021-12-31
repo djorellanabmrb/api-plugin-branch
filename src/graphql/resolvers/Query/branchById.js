@@ -15,10 +15,10 @@ import {
  * @returns {Promise<Object>|undefined} An Branch object
  */
 export default async function branchById(parentResult, args, context) {
-  const { id, shopId } = args;
+  const { branchId, shopId } = args;
 
   const branch = await context.queries.branchById(context, {
-    branchId: decodeBranchOpaqueId(id),
+    branchId: decodeBranchOpaqueId(branchId),
     shopId: decodeShopOpaqueId(shopId)
   });
 

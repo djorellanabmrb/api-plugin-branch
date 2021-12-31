@@ -12,9 +12,7 @@ import ReactionError from "@reactioncommerce/reaction-error";
  * @param {String} [params.token] - Anonymous order token
  * @returns {Promise<Object>|undefined} - An Order document, if one is found
  */
-export default async function branchById(context, args) {
-  console.log(args);
-  const { id, shopId } = args;
+export default async function branchById(context, { branchId, shopId }) {
   if (!branchId || !shopId) {
     throw new ReactionError(
       "invalid-param",

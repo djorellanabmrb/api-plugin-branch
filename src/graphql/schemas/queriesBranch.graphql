@@ -36,8 +36,10 @@ extend type Query {
   "Get a branch by its ID"
   branchById(
     "The shop that owns the branch"
+    shopId: ID
+    "The branch ID"
     branchId: ID
-  ): Branch
+  ): Boolean
 
   "Get all branches"
   branchWithoutPagination("The shop that owns the branch" shopId: ID!): [Branch]
