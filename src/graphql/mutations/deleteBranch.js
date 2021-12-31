@@ -18,18 +18,16 @@
  * @param {Object} input.storefrontUrls - An object containing storefront url locations
  * @returns {Promise<Object>} with updated shop
  */
-export default async function deleteBranch(context, input) {
+export default async function deleteBranch(context, { branchId, shopId }) {
   const { collections } = context;
   const { Branches } = collections;
-
-  const { branchId } = input;
 
   // Check permission to make sure user is allowed to do this
   // Security check for admin access
   // await context.validatePermissions(`reaction:legacy:shops:${shopId}`, "update", { shopId });
 
   const { value: deletedBranch } = await Branches.findOneAndUpdate(
-    { _id: branchId },
+    { _id: branchId, shopId },
     {
       $set: {
         active: false,

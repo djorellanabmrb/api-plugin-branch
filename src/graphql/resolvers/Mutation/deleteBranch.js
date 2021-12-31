@@ -1,4 +1,7 @@
-import { decodeShopOpaqueId } from "../../../xforms/id.js";
+import {
+  decodeShopOpaqueId,
+  decodeBranchOpaqueId
+} from "../../../xforms/id.js";
 
 /**
  * @name Mutation/updateBranch
@@ -11,15 +14,11 @@ import { decodeShopOpaqueId } from "../../../xforms/id.js";
  * @returns {Promise<Object>} DeleteBranchPayload
  */
 export default async function deleteBranch(_, { input }, context) {
-  const { clientMutationId = null, branchId: opaqueBranchId } = input;
-  const branchId = decodeShopOpaqueId(opaqueBranchId);
-
+  const { branchId, shopId } = input;
   const deletedBranch = await context.mutations.updateBranch(context, {
-    branchId
+    branchId: decodeBranchOpaqueId(branchId),
+    shopId: decodeShopOpaqueId(shopId)
   });
 
-  return {
-    branch: deletedBranch,
-    clientMutationId
-  };
+  return deletedBranch;
 }
