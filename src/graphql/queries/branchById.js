@@ -15,8 +15,6 @@ import ReactionError from "@reactioncommerce/reaction-error";
 export default async function branchById(context, args) {
   console.log(args);
   const { id, shopId } = args;
-  console.log("id", id);
-  console.log("shopId", shopId);
   if (!branchId || !shopId) {
     throw new ReactionError(
       "invalid-param",
