@@ -30,6 +30,7 @@ const serviceGeoCode = async (point) => {
   const _streets = {};
   const setAddress = new Set(STREETS);
   if (data.status === "OK") {
+    console.log("data", data);
     data.address_components.forEach((add) => {
       const interceptions = add.types.filter((type) => setAddress.has(type));
       if (interceptions.length > 0) {
