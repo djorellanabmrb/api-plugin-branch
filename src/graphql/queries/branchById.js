@@ -13,6 +13,8 @@ import ReactionError from "@reactioncommerce/reaction-error";
  * @returns {Promise<Object>|undefined} - An Order document, if one is found
  */
 export default async function branchById(context, { branchId, shopId } = {}) {
+  console.log("branchId", branchId);
+  console.log("shopId", shopId);
   if (!branchId || !shopId) {
     throw new ReactionError(
       "invalid-param",
