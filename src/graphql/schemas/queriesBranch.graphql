@@ -36,7 +36,9 @@ extend type Query {
   "Get a branch by its ID"
   branchById(
     "The branch ID"
-    id: ID
+    branchId: ID!
+    "The branch ID"
+    otherId: ID
 
     "The shop that owns the branch"
     shopId: ID
