@@ -17,10 +17,11 @@ export default async function metaddress(context, { point, shopId }) {
     "geographyData.point": { $near: { $geometry: point } }
   };
   const data = await Branches.findOne(query);
-  const branchAddress = await GoogleMapsService.serviceDistanceMatrix(
+  const _metaddress = await GoogleMapsService.serviceGeoCode(point);
+  _metaddress.distance = await GoogleMapsService.serviceDistanceMatrix(
     data.geographyData.point,
     point
   );
-  branchAddress.distance.branchId = data._id;
-  return branchAddress;
+  _metaddress.distance.branchId = data._id;
+  return _metaddress;
 }
