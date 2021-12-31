@@ -30,15 +30,19 @@ const serviceGeoCode = async (point) => {
   const _streets = {};
   const setAddress = new Set(STREETS);
   if (data.status === "OK") {
-    console.log("data", data);
-    data.address_components.forEach((add) => {
-      const interceptions = add.types.filter((type) => setAddress.has(type));
-      if (interceptions.length > 0) {
-        const addressFind = interceptions[0];
-        setAddress.delete(addressFind);
-        _streets[addressFind] = add.long_name;
+    if (data.results) {
+      if (data.results[0]) {
+        data.results[0].address_components.forEach((add) => {
+          const interceptions = add.types.filter((type) =>
+            setAddress.has(type));
+          if (interceptions.length > 0) {
+            const addressFind = interceptions[0];
+            setAddress.delete(addressFind);
+            _streets[addressFind] = add.long_name;
+          }
+        });
       }
-    });
+    }
   }
   setAddress.forEach((val) => {
     _streets[val] = "";
