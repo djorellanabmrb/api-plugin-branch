@@ -12,7 +12,9 @@ import ReactionError from "@reactioncommerce/reaction-error";
  * @param {String} [params.token] - Anonymous order token
  * @returns {Promise<Object>|undefined} - An Order document, if one is found
  */
-export default async function branchById(context, { branchId, shopId } = {}) {
+export default async function branchById(context, args) {
+  console.log(args);
+  const { branchId, shopId } = args;
   console.log("branchId", branchId);
   console.log("shopId", shopId);
   if (!branchId || !shopId) {

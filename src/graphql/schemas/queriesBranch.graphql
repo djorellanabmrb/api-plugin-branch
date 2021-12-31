@@ -36,10 +36,10 @@ extend type Query {
   "Get a branch by its ID"
   branchById(
     "The branch ID"
-    branchId: ID!
+    branchId: ID
 
     "The shop that owns the branch"
-    shopId: ID!
+    shopId: ID
   ): Branch
 
   "Get all branches"
