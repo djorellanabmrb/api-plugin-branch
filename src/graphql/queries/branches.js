@@ -28,7 +28,8 @@ export default async function branches(context, { filters, shopIds } = {}) {
   for (const shopId of shopIds) {
     // eslint-disable-next-line no-await-in-loop
     await context.validatePermissions("reaction:legacy:orders", "read", {
-      shopId
+      shopId,
+      active: true
     });
   }
 

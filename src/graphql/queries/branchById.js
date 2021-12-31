@@ -21,6 +21,10 @@ export default async function branchById(context, { branchId, shopId } = {}) {
   }
   const { collections } = context;
   const { Branches } = collections;
-
-  return Branches.findOne({ _id: branchId, shopId });
+  const branch = await Branches.findOne({
+    _id: branchId,
+    shopId,
+    active: true
+  });
+  return branch;
 }

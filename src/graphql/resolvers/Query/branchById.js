@@ -1,5 +1,5 @@
 import {
-  encodeBranchOpaqueId,
+  decodeBranchOpaqueId,
   decodeShopOpaqueId
 } from "../../../xforms/id.js";
 
@@ -17,8 +17,10 @@ import {
 export default async function branchById(parentResult, args, context) {
   const { id, shopId } = args;
 
-  return context.queries.branchById(context, {
-    branchId: encodeBranchOpaqueId(id),
+  const branch = await context.queries.branchById(context, {
+    branchId: decodeBranchOpaqueId(id),
     shopId: decodeShopOpaqueId(shopId)
   });
+
+  return branch;
 }

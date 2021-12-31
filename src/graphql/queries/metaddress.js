@@ -14,7 +14,8 @@ export default async function metaddress(context, { point, shopId }) {
   const { Branches } = collections;
   const query = {
     shopId,
-    "geographyData.point": { $near: { $geometry: point } }
+    "geographyData.point": { $near: { $geometry: point } },
+    "active": true
   };
   const data = await Branches.findOne(query);
   const _metaddress = await GoogleMapsService.serviceGeoCode(point);

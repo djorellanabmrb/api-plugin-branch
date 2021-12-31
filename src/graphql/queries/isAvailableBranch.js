@@ -30,6 +30,7 @@ export default async function isAvailableBranch(
   const { Branches } = collections;
   const query = {
     _id: branchId,
+    active: true,
     shopId
   };
   const { day, time } = getNowDayByTimeZone(date);

@@ -1,4 +1,4 @@
-import { decodeShopOpaqueId } from "../../../xforms/id.js";
+import { decodeShopOpaqueId, decodeBranchOpaqueId } from "../../../xforms/id.js";
 
 /**
  * @name Query.metaddress
@@ -15,7 +15,7 @@ export default async function isAvailableBranch(parentResult, args, context) {
   const { shopId, branchId, date } = args;
   const data = await context.queries.isAvailableBranch(context, {
     shopId: decodeShopOpaqueId(shopId),
-    branchId,
+    branchId: decodeBranchOpaqueId(branchId),
     date
   });
   return data;
