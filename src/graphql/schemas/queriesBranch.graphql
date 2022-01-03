@@ -3,6 +3,22 @@ input BranchFilterInput {
   searchField: String
 }
 
+type BranchConnection {
+  "The list of nodes that match the query, wrapped in an edge to provide a cursor string for each"
+  edges: [Branch]
+
+  """
+  You can request the `nodes` directly to avoid the extra wrapping that `NodeEdge` has,
+  if you know you will not need to paginate the results.
+  """
+  nodes: [Branch]
+  "Information to help a client request the next or previous page"
+  pageInfo: PageInfo!
+  "The total number of nodes that match your query"
+  totalCount: Int!
+}
+
+
 extend type Query {
   branches(
     "Filters to apply to a list of branch"
@@ -31,7 +47,7 @@ extend type Query {
 
     "By default, branches are sorted by when they were created, newest first. Set this to sort by one of the other allowed fields"
     sortBy: OrdersSortByField = createdAt
-  ): OrderConnection!
+  ): BranchConnection!
 
   "Get a branch by its ID"
   branchById(
