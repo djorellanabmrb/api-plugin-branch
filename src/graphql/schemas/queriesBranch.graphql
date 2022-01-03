@@ -44,9 +44,6 @@ extend type Query {
 
     "Return results sorted in this branch"
     sortOrder: SortOrder = desc
-
-    "By default, branches are sorted by when they were created, newest first. Set this to sort by one of the other allowed fields"
-    sortBy: OrdersSortByField = createdAt
   ): BranchConnection!
 
   "Get a branch by its ID"
