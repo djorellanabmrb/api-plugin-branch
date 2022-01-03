@@ -13,27 +13,18 @@ import ReactionError from "@reactioncommerce/reaction-error";
  * @param {Array.<String>} params.shopIds - Shop IDs for the shops that owns the orders
  * @returns {Promise<Object>|undefined} - An Array of Order documents, if found
  */
-export default async function branches(context, { filters, shopIds } = {}) {
+export default async function branches(context, { filters, shopId } = {}) {
   const { collections } = context;
   const { Branches } = collections;
 
-  const query = {};
+  const query = { shopId };
 
   let searchFieldFilter = {};
 
   // Validate user has permission to view orders for all shopIds
-  if (!shopIds) {
+  if (!shopId) {
     throw new ReactionError("invalid-param", "You must provide ShopId(s)");
   }
-  for (const shopId of shopIds) {
-    // eslint-disable-next-line no-await-in-loop
-    await context.validatePermissions("reaction:legacy:orders", "read", {
-      shopId,
-      active: true
-    });
-  }
-
-  query.shopId = { $in: shopIds };
 
   // Use `filters` to filters out results on the server
   if (filters && filters.searchField) {

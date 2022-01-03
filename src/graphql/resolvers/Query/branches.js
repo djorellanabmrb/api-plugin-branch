@@ -16,13 +16,13 @@ import { decodeShopOpaqueId } from "../../../xforms/id.js";
  * @returns {Promise<Object>|undefined} An Branch object
  */
 export default async function branches(parentResult, args, context, info) {
-  const { filters, shopIds: opaqueShopIds, ...connectionArgs } = args;
+  const { filters, shopId: opaqueShopId, ...connectionArgs } = args;
 
-  const shopIds = opaqueShopIds && opaqueShopIds.map(decodeShopOpaqueId);
+  const shopId = decodeShopOpaqueId(opaqueShopId);
 
   const query = await context.queries.branches(context, {
     filters,
-    shopIds
+    shopId
   });
 
   return getPaginatedResponse(query, connectionArgs, {
