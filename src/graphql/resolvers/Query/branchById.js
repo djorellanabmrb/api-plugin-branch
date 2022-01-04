@@ -15,6 +15,7 @@ import {
  * @returns {Promise<Object>|undefined} An Branch object
  */
 export default async function branchById(parentResult, args, context) {
+  console.log("args", args);
   const { branchId, shopId } = args;
 
   const branch = await context.queries.branchById(context, {
