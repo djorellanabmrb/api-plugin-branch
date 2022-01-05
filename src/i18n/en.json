@@ -1,12 +1,12 @@
 [
     {
-      "language": "Spanish",
-      "i18n": "es",
+      "language": "Englis",
+      "i18n": "en",
       "ns": "reaction-plugin-branch",
       "translation": {
         "reaction-plugin-branch": {
           "admin": {
-            "branches": "Sucursales"
+            "branches": "Branches"
           }
         }
       }

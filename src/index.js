@@ -6,6 +6,7 @@ import resolvers from "./graphql/resolvers/index.js";
 import { Branch } from "./simpleSchemas.js";
 import mutations from "./graphql/mutations/index.js";
 import queries from "./graphql/queries/index.js";
+import i18n from "./i18n/index.js";
 
 /**
  * @summary Import and call this function to add this plugin to your API.
@@ -17,6 +18,7 @@ export default async function register(app) {
     label: "Branches",
     name: "branches",
     version: pkg.version,
+    i18n,
     collections: {
       Branches: {
         name: "Branches",
