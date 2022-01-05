@@ -34,8 +34,8 @@ export default async function branches(context, { filters, shopId } = {}) {
     searchFieldFilter = {
       $or: [
         // Regex match names as they include the whole name in one field
-        { name: regexMatch },
-        { address: regexMatch }
+        { "generalData.name": regexMatch },
+        { "generalData.address": regexMatch }
       ]
     };
   }
