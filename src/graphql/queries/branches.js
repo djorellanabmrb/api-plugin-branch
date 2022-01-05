@@ -17,7 +17,7 @@ export default async function branches(context, { filters, shopId } = {}) {
   const { collections } = context;
   const { Branches } = collections;
 
-  const query = { shopId };
+  const query = { shopId, active: true };
 
   let searchFieldFilter = {};
 
