@@ -6,7 +6,10 @@
       "translation": {
         "reaction-plugin-branch": {
           "admin": {
-            "branches": "Sucursales"
+            "branches": "Sucursales",
+            "branchTable":{
+              "filterPlaceholder": "Filtro por nombre o dirección"
+            }
           }
         }
       }

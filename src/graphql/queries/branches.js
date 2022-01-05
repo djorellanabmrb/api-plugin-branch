@@ -28,7 +28,6 @@ export default async function branches(context, { filters, shopId } = {}) {
 
   // Use `filters` to filters out results on the server
   if (filters && filters.searchField) {
-    console.log(filters);
     const { searchField } = filters;
     const regexMatch = { $regex: _.escapeRegExp(searchField), $options: "i" };
     searchFieldFilter = {
@@ -46,7 +45,6 @@ export default async function branches(context, { filters, shopId } = {}) {
       ...searchFieldFilter
     }
   ];
-  let mm = JSON.stringify(query);
-  console.log("query", mm);
+
   return Branches.find(query);
 }

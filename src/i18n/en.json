@@ -1,12 +1,15 @@
 [
     {
-      "language": "Englis",
+      "language": "English",
       "i18n": "en",
       "ns": "reaction-plugin-branch",
       "translation": {
         "reaction-plugin-branch": {
           "admin": {
-            "branches": "Branches"
+            "branches": "Branches",
+            "branchTable":{
+              "filterPlaceholder": "Filtro por nombre o dirección"
+            }
           }
         }
       }
