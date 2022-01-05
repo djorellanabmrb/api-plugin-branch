@@ -46,6 +46,7 @@ export default async function branches(context, { filters, shopId } = {}) {
       ...searchFieldFilter
     }
   ];
-  console.log("query", query);
+  let mm = JSON.stringify(query);
+  console.log("query", mm);
   return Branches.find(query);
 }
