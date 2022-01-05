@@ -24,5 +24,6 @@ export default async function metaddress(context, { point, shopId }) {
     point
   );
   _metaddress.distance.branchId = data._id;
+  _metaddress.distance.branch = data.name;
   return _metaddress;
 }

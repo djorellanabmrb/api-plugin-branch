@@ -97,6 +97,9 @@ type DistanceAddressBranch {
 
   "it is id of the branch more nearly"
   branchId: String
+
+  "name of the branch"
+  branch: String
 }
 
 type MetaddressBranch {
