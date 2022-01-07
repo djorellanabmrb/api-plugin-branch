@@ -23,9 +23,7 @@ export default async function metaddress(context, { point, shopId }) {
     data.geographyData.point,
     point
   );
-  console.log("data", data);
   _metaddress.distance.branchId = data._id;
-  _metaddress.distance.branch = data.name;
-  console.log("_metaddress", _metaddress);
+  _metaddress.distance.branch = data.generalData.name;
   return _metaddress;
 }
