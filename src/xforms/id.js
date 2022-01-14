@@ -3,8 +3,12 @@ import encodeOpaqueId from "@reactioncommerce/api-utils/encodeOpaqueId.js";
 
 const namespaces = {
   Branch: "reaction/branch",
-  Shop: "reaction/shop"
+  Shop: "reaction/shop",
+  Account: "reaction/account"
 };
+
+export const encodeAccountOpaqueId = encodeOpaqueId(namespaces.Account);
+export const decodeAccountOpaqueId = decodeOpaqueIdForNamespace(namespaces.Account);
 
 export const encodeBranchOpaqueId = encodeOpaqueId(namespaces.Branch);
 export const decodeBranchOpaqueId = decodeOpaqueIdForNamespace(namespaces.Branch);

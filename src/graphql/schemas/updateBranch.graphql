@@ -79,4 +79,13 @@ extend type Mutation {
     "Mutation input"
     input: UpdateBranchInput!
   ): Branch!
+
+  addBranchToAccount(
+    "Account input"
+    accountId: ID
+    "shop input"
+    shopId: ID
+    branches:[ID]
+  ): UserBranches
+
 }

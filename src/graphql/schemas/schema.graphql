@@ -88,6 +88,14 @@ type Branch {
   updatedAt: DateTime
 }
 
+type UserBranches {
+  "Branches of the user"
+  accountBranches: [Branch]
+
+  "Branches that doesnt have the user"
+  complement: [Branch]
+}
+
 type DistanceAddressBranch {
   "text of distance"
   text: String

@@ -18,8 +18,15 @@ type BranchConnection {
   totalCount: Int!
 }
 
-
 extend type Query {
+  branchesByAccount(
+    "Accouunt id"
+    accountId: ID
+
+    "Shop id"
+    shopId: ID
+  ): UserBranches
+
   branches(
     "Filters to apply to a list of branch"
     filters: BranchFilterInput
