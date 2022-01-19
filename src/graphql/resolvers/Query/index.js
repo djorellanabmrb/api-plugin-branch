@@ -4,6 +4,7 @@ import branchWithoutPagination from "./branchWithoutPagination.js";
 import metaddress from "./metaddress.js";
 import isAvailableBranch from "./isAvailableBranch.js";
 import branchesByAccount from "./branchesByAccount.js";
+import branchesByVariant from "./branchesByVariant.js";
 
 export default {
   branchById,
@@ -11,5 +12,6 @@ export default {
   branchWithoutPagination,
   metaddress,
   isAvailableBranch,
-  branchesByAccount
+  branchesByAccount,
+  branchesByVariant
 };

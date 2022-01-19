@@ -86,6 +86,6 @@ extend type Mutation {
     "shop input"
     shopId: ID
     branches:[ID]
-  ): UserBranches
+  ): EntityBranches
 
 }

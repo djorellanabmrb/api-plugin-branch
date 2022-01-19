@@ -25,7 +25,19 @@ extend type Query {
 
     "Shop id"
     shopId: ID
-  ): UserBranches
+  ): EntityBranches
+
+    branchesByVariant(
+    "product id"
+    productId: ID
+
+    "Shop id"
+    shopId: ID
+    
+    "branches of the user"
+    branches: [ID]
+  ): EntityBranches
+
 
   branches(
     "Filters to apply to a list of branch"

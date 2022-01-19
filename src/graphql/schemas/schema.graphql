@@ -88,11 +88,11 @@ type Branch {
   updatedAt: DateTime
 }
 
-type UserBranches {
-  "Branches of the user"
-  accountBranches: [Branch]
+type EntityBranches {
+  "Branches of the entity"
+  entityBranches: [Branch]
 
-  "Branches that doesnt have the user"
+  "Branches that doesnt have the entity"
   complement: [Branch]
 }
 

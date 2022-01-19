@@ -28,12 +28,12 @@ export default async function branchesByAccount(
   });
   branches = await branches.toArray();
   if (!Array.isArray(account.branches)) {
-    return { accountBranches: [], complement: branches };
+    return { entityBranches: [], complement: branches };
   }
-  const result = { accountBranches: [], complement: [] };
+  const result = { entityBranches: [], complement: [] };
   branches.forEach((_branch) => {
     if (account.branches.includes(_branch._id)) {
-      result.accountBranches.push(_branch);
+      result.entityBranches.push(_branch);
     } else {
       result.complement.push(_branch);
     }
